@@ -13,7 +13,12 @@ def dfs(boxes, node, visited):
         return
     visited.add(node)
     for box in boxes[node]:
-        dfs(boxes, box, visited)
+        if box not in visited:
+            dfs(boxes, box, visited)
+    if len(visited) == len(boxes):
+        return True
+    else:
+        return False
 
 
 def canUnlockAll(boxes):
@@ -25,8 +30,4 @@ def canUnlockAll(boxes):
     """
     if len(boxes) == 0 or boxes == [[]]:
         return True
-    visited = set()
-    dfs(boxes, 0, visited)
-    if (len(visited) == len(boxes)):
-        return True
-    return False
+    return dfs(boxes, 0, set())
