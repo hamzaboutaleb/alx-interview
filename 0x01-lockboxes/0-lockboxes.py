@@ -13,8 +13,7 @@ def dfs(boxes, node, visited):
         return
     visited.add(node)
     for box in boxes[node]:
-        if box not in visited:
-            dfs(boxes, box, visited)
+        dfs(boxes, box, visited)
 
 
 def canUnlockAll(boxes):
