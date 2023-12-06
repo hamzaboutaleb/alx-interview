@@ -6,6 +6,7 @@ def dfs(boxes, node, visited):
   for box in boxes[node]:
     if box not in visited:
       dfs(boxes, box, visited)
+
 def canUnlockAll(boxes):
   visited = set()
   dfs(boxes, 0, visited)
