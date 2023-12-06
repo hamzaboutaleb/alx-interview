@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 def dfs(boxes, node, visited):
   if node in visited:
     return
@@ -8,7 +9,7 @@ def dfs(boxes, node, visited):
       dfs(boxes, box, visited)
 
 def canUnlockAll(boxes):
-  if (len(boxes) == 0):
+  if len(boxes) <= 1 or boxes == [[]]:
     return True
   visited = set()
   dfs(boxes, 0, visited)
