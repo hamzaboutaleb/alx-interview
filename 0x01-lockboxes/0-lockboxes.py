@@ -9,16 +9,17 @@ def dfs(boxes, node, visited):
       node: current box
       visited: set contains all visited nodes
     """
-    stack = [0]
-    
-    while len(stack) > 0:
-        current = stack.pop()
-        visited.add(current)
-        if current >= len(boxes):
-            continue
-        for box in boxes[current]:
-            if box not in visited:
-                stack.append(box)
+
+    if node in visited:
+        return
+    if node >= len(boxes):
+        return
+
+    visited.add(node)
+    for box in boxes[node]:
+        if box not in visited:
+            dfs(boxes, box, visited)
+
     if len(visited) == len(boxes):
         return True
     else:
