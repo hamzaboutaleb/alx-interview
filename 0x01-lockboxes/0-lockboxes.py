@@ -32,4 +32,5 @@ def canUnlockAll(boxes):
     """
     if len(boxes) == 0 or boxes == [[]]:
         return True
-    return dfs(boxes, 0, set())
+    visited = set()
+    return dfs(boxes, 0, visited)
