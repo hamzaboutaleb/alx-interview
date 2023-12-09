@@ -11,6 +11,8 @@ def dfs(boxes, node, visited):
     """
     if node in visited:
         return
+    if node >= len(boxes):
+        return
     visited.add(node)
     for box in boxes[node]:
         if box not in visited:
